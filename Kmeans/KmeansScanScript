@@ -1,0 +1,27 @@
+#!/bin/bash
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=4
+#SBATCH --time=0:35:00
+#SBATCH --mem=122GB
+#SBATCH --job-name=UnitDbScanTest
+#SBATCH --mail-type=END
+#SBATCH --mail-user=nh1716@nyu.edu
+#SBATCH --output=slurm_%j.out
+  
+module purge
+module load matlab/2019a
+module load scikit-learn/intel/0.18.1
+module load intel/17.0.1
+module load zlib/intel/1.2.8
+module load python/intel/2.7.12
+module load numpy/intel/1.13.1
+
+RUNDIR=$HOME/nh1716/smallCode/Kmeans ##/DbTest.py-${SLURM_JOB_ID/.*}
+mkdir -p $RUNDIR
+python UnitKmeansScan.py
+  
+#DATADIR=$SCRATCH/nh1716/smalldata
+DATADIR=$HOME/nh1716/CodeOuts
+cd $RUNDIR
+#stata -b do $DATADIR/data_0706.do

@@ -1,0 +1,20 @@
+UnitDbScan.py:142: RuntimeWarning: invalid value encountered in divide
+  'helicities':  np.abs(multi_helicities) / (np.amax(np.abs(multi_helicities ) )), #helicities are all negative
+UnitDbScan.py:177: RuntimeWarning: invalid value encountered in divide
+  'helicities':  np.abs(multi_helicities) / (np.amax(np.abs(multi_helicities ) )), #helicities are all negative
+Reading filename /home/nh1716/smallData/quasisymmetry_out.20190105-01-021_nfp1_stellSym.nc
+multi_iotas.shape: (122184,)
+Traceback (most recent call last):
+  File "UnitDbScan.py", line 207, in <module>
+    X = StandardScaler().fit_transform( np.transpose(Y))
+  File "/share/apps/scikit-learn/0.18.1/intel/lib/python2.7/site-packages/sklearn/base.py", line 494, in fit_transform
+    return self.fit(X, **fit_params).transform(X)
+  File "/share/apps/scikit-learn/0.18.1/intel/lib/python2.7/site-packages/sklearn/preprocessing/data.py", line 560, in fit
+    return self.partial_fit(X, y)
+  File "/share/apps/scikit-learn/0.18.1/intel/lib/python2.7/site-packages/sklearn/preprocessing/data.py", line 583, in partial_fit
+    estimator=self, dtype=FLOAT_DTYPES)
+  File "/share/apps/scikit-learn/0.18.1/intel/lib/python2.7/site-packages/sklearn/utils/validation.py", line 407, in check_array
+    _assert_all_finite(array)
+  File "/share/apps/scikit-learn/0.18.1/intel/lib/python2.7/site-packages/sklearn/utils/validation.py", line 58, in _assert_all_finite
+    " or a value too large for %r." % X.dtype)
+ValueError: Input contains NaN, infinity or a value too large for dtype('float64').

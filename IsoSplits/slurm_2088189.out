@@ -1,0 +1,37 @@
+Reading filename /home/nh1716/smallData/quasisymmetry_out.20190105-01-021_nfp1_stellSym.nc
+multi_iotas.shape: (122184,)
+Reading filename /home/nh1716/smallData/quasisymmetry_out.20190105-01-022_nfp2_stellSym.nc
+multi_iotas.shape: (873718,)
+Reading filename /home/nh1716/smallData/quasisymmetry_out.20190105-01-023_nfp3_stellSym.nc
+multi_iotas.shape: (1784572,)
+Reading filename /home/nh1716/smallData/quasisymmetry_out.20190105-01-024_nfp4_stellSym.nc
+multi_iotas.shape: (2693992,)
+Reading filename /home/nh1716/smallData/quasisymmetry_out.20190105-01-025_nfp5_stellSym.nc
+multi_iotas.shape: (3656786,)
+Reading filename /home/nh1716/smallData/quasisymmetry_out.20190105-01-026_nfp6_stellSym.nc
+multi_iotas.shape: (4575938,)
+Reading filename /home/nh1716/smallData/quasisymmetry_out.20190105-01-027_nfp7_stellSym.nc
+multi_iotas.shape: (5483884,)
+Reading filename /home/nh1716/smallData/quasisymmetry_out.20190105-01-028_nfp8_stellSym.nc
+multi_iotas.shape: (6375240,)
+Reading filename /home/nh1716/smallData/quasisymmetry_out.20190105-01-029_nfp9_stellSym.nc
+multi_iotas.shape: (7253947,)
+Reading filename /home/nh1716/smallData/quasisymmetry_out.20190105-01-030_nfp10_stellSym.nc
+multi_iotas.shape: (8123765,)
+R0c1
+R0c2
+R0c3
+Z0s1
+Z0s2
+Z0s3
+dominantnfps
+etabar
+helicities
+iotas
+maxcurvatures
+maxelongations
+maxmodBinv
+nfps
+rmscurvatures
+stdofR
+stdofZ

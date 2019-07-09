@@ -1,0 +1,36 @@
+#!/bin/bash
+#SBATCH --job-name=Matlab
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --mem=102GB
+#SBATCH --time=01:00:00
+ 
+module purge
+module load matlab/2016b
+ 
+if [ "$SLURM_JOBTMP" == "" ]; then
+    export SLURM_JOBTMP=/state/partition1/$USER/$$
+    mkdir -p $SLURM_JOBTMP
+fi
+ 
+export MATLAB_PREFDIR=$(mktemp -d $SLURM_JOBTMP/matlab-XXXXXX)
+##cd /scratch/$USER/test_slurm/matlab/basic
+cd $HOME/smallCode/IsoSplits/isosplit5
+ 
+echo "Job starts: $(date)"
+echo "Hostname: $(hostname)"
+ 
+cat<<EOF | matlab -nodisplay
+try
+    UnitIsoCluster
+catch err
+    fprintf('\n\nTime: %s\n', datestr(datetime('now')));
+    fprintf('Matlab error: %s\n', err.message);
+    exit(1);
+end
+EOF
+ 
+matlab_status=$?
+echo "Job ends: $(date)"
+rm -rf $MATLAB_PREFDIR
+exit $matlab_status

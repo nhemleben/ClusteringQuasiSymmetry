@@ -1,0 +1,50 @@
+Job starts: Tue Jul  9 15:06:22 EDT 2019
+Hostname: c99-02
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2016 The MathWorks, Inc.
+                   R2016b (9.1.0.441655) 64-bit (glnxa64)
+                             September 7, 2016
+
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+    ----------------------------------------------------
+	Your MATLAB license will expire in 21 days.
+	Please contact your system administrator or
+	MathWorks to renew this license.
+    ----------------------------------------------------
+>> DEBUG: iii[0]=0: 0.0333333 0.177828 0 0.00923279 0.255326 0.952361 0.300633 0.1 0.263749 0.0994349 0.226307 
+DEBUG: iii[1]=1: 0.1 0.177828 0.1 0.0807272 0.276707 0.94291 0.309854 0.3 0.28866 0.688549 0.658692 
+DEBUG: iii[2]=2: 0.1 0.177828 0.1 0.0807272 0.276707 0.94291 0.309854 0.3 0.28866 0.688549 0.658692 
+Unexpected problem. New parcel has no points -- perhaps dataset contains duplicate points? -- original size = 653.
+
+T = 
+
+  17×1 string array
+
+    "R0c1          "
+    "R0c2          "
+    "R0c3          "
+    "Z0s1          "
+    "Z0s2          "
+    "Z0s3          "
+    "dominantnfps  "
+    "etabar        "
+    "helicities    "
+    "iotas         "
+    "maxcurvatures "
+    "maxelongations"
+    "maxmodBinv    "
+    "nfps          "
+    "rmscurvatures "
+    "stdofR        "
+    "stdofZ        "
+
+
+i =
+
+     8
+
+>> Job ends: Tue Jul  9 15:08:43 EDT 2019
