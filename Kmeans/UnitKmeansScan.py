@@ -1,6 +1,4 @@
-
 #Kmeans clustering of the data
-#This library also contains kmeans
 #https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html
 
 import numpy as np
@@ -15,18 +13,17 @@ from sklearn.cluster import KMeans
 from sklearn.datasets import make_blobs
 from sklearn.preprocessing import StandardScaler
 
-#Testing with 1 file first
 filenames = [
     '/home/nh1716/smallData/quasisymmetry_out.20190105-01-021_nfp1_stellSym.nc',
-#    '/home/nh1716/smallData/quasisymmetry_out.20190105-01-022_nfp2_stellSym.nc',
-#    '/home/nh1716/smallData/quasisymmetry_out.20190105-01-023_nfp3_stellSym.nc',
-#    '/home/nh1716/smallData/quasisymmetry_out.20190105-01-024_nfp4_stellSym.nc',
-#    '/home/nh1716/smallData/quasisymmetry_out.20190105-01-025_nfp5_stellSym.nc',
-#    '/home/nh1716/smallData/quasisymmetry_out.20190105-01-026_nfp6_stellSym.nc',
-#    '/home/nh1716/smallData/quasisymmetry_out.20190105-01-027_nfp7_stellSym.nc',
-#    '/home/nh1716/smallData/quasisymmetry_out.20190105-01-028_nfp8_stellSym.nc',
-#    '/home/nh1716/smallData/quasisymmetry_out.20190105-01-029_nfp9_stellSym.nc',
-#    '/home/nh1716/smallData/quasisymmetry_out.20190105-01-030_nfp10_stellSym.nc'
+    '/home/nh1716/smallData/quasisymmetry_out.20190105-01-022_nfp2_stellSym.nc',
+    '/home/nh1716/smallData/quasisymmetry_out.20190105-01-023_nfp3_stellSym.nc',
+    '/home/nh1716/smallData/quasisymmetry_out.20190105-01-024_nfp4_stellSym.nc',
+    '/home/nh1716/smallData/quasisymmetry_out.20190105-01-025_nfp5_stellSym.nc',
+    '/home/nh1716/smallData/quasisymmetry_out.20190105-01-026_nfp6_stellSym.nc',
+    '/home/nh1716/smallData/quasisymmetry_out.20190105-01-027_nfp7_stellSym.nc',
+    '/home/nh1716/smallData/quasisymmetry_out.20190105-01-028_nfp8_stellSym.nc',
+    '/home/nh1716/smallData/quasisymmetry_out.20190105-01-029_nfp9_stellSym.nc',
+    '/home/nh1716/smallData/quasisymmetry_out.20190105-01-030_nfp10_stellSym.nc'
 ]
 
 
@@ -140,24 +137,20 @@ VarDict= {
           'iotas': multi_iotas/ (np.amax(multi_iotas )),
           'rms curvatures':  multi_rms_curvature/ (np.amax(multi_rms_curvature )),
           'dominant nfps':  multi_dominant_nfps/ (np.amax( multi_dominant_nfps)) ,
-          'helicities':  np.abs(multi_helicities),
-# / (np.amax(np.abs(multi_helicities ) )), #helicities are all negative
+          'helicities':  np.abs(multi_helicities) / (np.amax(np.abs(multi_helicities ) )), #helicities are all negative
           'max curvatures':  multi_max_curvatures / (np.amax(multi_max_curvatures  )),
           'max elongations': multi_max_elongations / (np.amax(multi_max_elongations  )),
           'std of R':  multi_standard_deviations_of_R/ (np.amax(multi_standard_deviations_of_R )),
           'std of Z':  multi_standard_deviations_of_Z/ (np.amax(multi_standard_deviations_of_Z )),
-
           'eta bar': multi_eta_bar / (np.amax(multi_eta_bar )) ,
           #          'R0c1':  multi_R0c1 / (np.amax(multi_R0c1 )),
-          'R0c2':  multi_R0c2 / (np.amax(multi_R0c2 )),
+          #'R0c2':  multi_R0c2 / (np.amax(multi_R0c2 )),
           #          'R0c3':  multi_R0c3 / (np.amax(multi_R0c3 )),
           #          'Z0s1':  multi_Z0s1 / (np.amax(multi_Z0s1)),
-          'Z0s2':  multi_Z0s2 / (np.amax(multi_Z0s2)),
+          #'Z0s2':  multi_Z0s2 / (np.amax(multi_Z0s2)),
           #          'Z0s3':  multi_Z0s3 / (np.amax(multi_Z0s3)),
-          'nfps':  multi_nfps / (np.amax( multi_nfps)),
+          #'nfps':  multi_nfps / (np.amax( multi_nfps)),
           }
-
-
 
 InputDict= {
     'eta bar': multi_eta_bar/ (np.amax(multi_eta_bar )),
@@ -168,47 +161,40 @@ InputDict= {
     #        'Z0s1':  multi_Z0s1/ (np.amax(multi_Z0s1 )),
     'Z0s2':  multi_Z0s2/ (np.amax(multi_Z0s2 )),
     #       'Z0s3':  multi_Z0s3/ (np.amax(multi_Z0s3 )),
-    'nfps':  multi_nfps/ (np.amax(multi_nfps ))
-}
-
+    'nfps':  multi_nfps/ (np.amax(multi_nfps ))     }
 OutputDict={ 
           'max modBinv':  multi_modBinv/ (np.amax(multi_modBinv)),
           'iotas': multi_iotas/ (np.amax(multi_iotas )),
           'rms curvatures':  multi_rms_curvature/ (np.amax(multi_rms_curvature )),
           'dominant nfps':  multi_dominant_nfps/ (np.amax( multi_dominant_nfps)) ,
-          'helicities':  np.abs(multi_helicities) ,
-#/ (np.amax(np.abs(multi_helicities ) )), #helicities are all negative
+          'helicities':  np.abs(multi_helicities) / (np.amax(np.abs(multi_helicities ) )), #helicities are all negative
           'max curvatures':  multi_max_curvatures / (np.amax(multi_max_curvatures  )),
           'max elongations': multi_max_elongations / (np.amax(multi_max_elongations  )),
           'std of R':  multi_standard_deviations_of_R/ (np.amax(multi_standard_deviations_of_R )),
           'std of Z':  multi_standard_deviations_of_Z/ (np.amax(multi_standard_deviations_of_Z ))
           }
 
-
-
-Y=[]
-for var in OutputDict.keys():
-    B=np.ndarray.tolist(OutputDict[var])
-    Y.append(B)
-#easier way to modify A on successive runs
-A=[]
-for var in ['std of Z', 'std of R']:
+Keys = VarDict.keys()
+Keys.sort()
+X=[]
+for var in VarDict.keys():
     B=np.ndarray.tolist(VarDict[var])
-    A.append(B)
-
-
-
-
-#Same scaling as DbScan?
-X = StandardScaler().fit_transform( np.transpose(Y))
-
-random_state=170
+    X.append(B)
 
 # Incorrect number of clusters
-y_pred = KMeans(n_clusters=2, random_state=random_state).fit_predict(X)
+y_pred = KMeans(n_clusters=15).fit_predict(np.transpose(X))
 
-plt.scatter(X[:, 0], X[:, 1], c=y_pred)
+Io= VarDict['iotas']
+MC = VarDict['max curvatures']
 
-
+plt.scatter(Io, MC , c=y_pred)
 plt.savefig('KmeansUnitScan.png')
+
+np.save('labels.npy', y_pred)
+
+
+
+
+
+
 

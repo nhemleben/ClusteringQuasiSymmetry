@@ -1,0 +1,8 @@
+Reading filename /home/nh1716/smallData/quasisymmetry_out.20190105-01-021_nfp1_stellSym.nc
+multi_iotas.shape: (122184,)
+Reading filename /home/nh1716/smallData/quasisymmetry_out.20190105-01-022_nfp2_stellSym.nc
+multi_iotas.shape: (873718,)
+Reading filename /home/nh1716/smallData/quasisymmetry_out.20190105-01-023_nfp3_stellSym.nc
+multi_iotas.shape: (1784572,)
+Estimated number of clusters: 215
+Estimated number of noise points: 143447

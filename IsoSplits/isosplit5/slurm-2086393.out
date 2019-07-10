@@ -1,0 +1,26 @@
+Job starts: Tue Jul  9 12:40:53 EDT 2019
+Hostname: c99-01
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2016 The MathWorks, Inc.
+                   R2016b (9.1.0.441655) 64-bit (glnxa64)
+                             September 7, 2016
+
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+    ----------------------------------------------------
+	Your MATLAB license will expire in 21 days.
+	Please contact your system administrator or
+	MathWorks to renew this license.
+    ----------------------------------------------------
+>> DEBUG: iii[0]=0: 0.0779263 0.166667 0.508831 0.885679 0.541753 0.0712427 0.0682176 
+DEBUG: iii[1]=1: 0.0779263 0.166667 0.508831 0.885679 0.541753 0.0712427 0.0682176 
+DEBUG: iii[2]=2: 0.0570551 0.2 0.692049 0.859556 0.684945 0.0722052 0.0680666 
+Unexpected problem. New parcel has no points -- perhaps dataset contains duplicate points? -- original size = 46550.
+
+
+Time: 09-Jul-2019 12:41:04
+Matlab error: Undefined function or variable 'Names'.
+Job ends: Tue Jul  9 12:41:07 EDT 2019

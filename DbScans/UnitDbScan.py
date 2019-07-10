@@ -13,12 +13,10 @@ from scipy.io import netcdf
 import sys, os
 
 
-
-#Testing with 1 file first
 filenames = [
     '/home/nh1716/smallData/quasisymmetry_out.20190105-01-021_nfp1_stellSym.nc',
-#    '/home/nh1716/smallData/quasisymmetry_out.20190105-01-022_nfp2_stellSym.nc',
-#    '/home/nh1716/smallData/quasisymmetry_out.20190105-01-023_nfp3_stellSym.nc',
+    '/home/nh1716/smallData/quasisymmetry_out.20190105-01-022_nfp2_stellSym.nc',
+    '/home/nh1716/smallData/quasisymmetry_out.20190105-01-023_nfp3_stellSym.nc',
 #    '/home/nh1716/smallData/quasisymmetry_out.20190105-01-024_nfp4_stellSym.nc',
 #    '/home/nh1716/smallData/quasisymmetry_out.20190105-01-025_nfp5_stellSym.nc',
 #    '/home/nh1716/smallData/quasisymmetry_out.20190105-01-026_nfp6_stellSym.nc',
@@ -139,8 +137,7 @@ VarDict= {
           'iotas': multi_iotas/ (np.amax(multi_iotas )),
           'rms curvatures':  multi_rms_curvature/ (np.amax(multi_rms_curvature )),
           'dominant nfps':  multi_dominant_nfps/ (np.amax( multi_dominant_nfps)) ,
-          'helicities':  np.abs(multi_helicities),
-# / (np.amax(np.abs(multi_helicities ) )), #helicities are all negative
+          'helicities':  np.abs(multi_helicities) / (np.amax(np.abs(multi_helicities ) )), #helicities are all negative
           'max curvatures':  multi_max_curvatures / (np.amax(multi_max_curvatures  )),
           'max elongations': multi_max_elongations / (np.amax(multi_max_elongations  )),
           'std of R':  multi_standard_deviations_of_R/ (np.amax(multi_standard_deviations_of_R )),
@@ -148,10 +145,10 @@ VarDict= {
 
           'eta bar': multi_eta_bar / (np.amax(multi_eta_bar )) ,
           #          'R0c1':  multi_R0c1 / (np.amax(multi_R0c1 )),
-          'R0c2':  multi_R0c2 / (np.amax(multi_R0c2 )),
+          #'R0c2':  multi_R0c2 / (np.amax(multi_R0c2 )),
           #          'R0c3':  multi_R0c3 / (np.amax(multi_R0c3 )),
           #          'Z0s1':  multi_Z0s1 / (np.amax(multi_Z0s1)),
-          'Z0s2':  multi_Z0s2 / (np.amax(multi_Z0s2)),
+          #'Z0s2':  multi_Z0s2 / (np.amax(multi_Z0s2)),
           #          'Z0s3':  multi_Z0s3 / (np.amax(multi_Z0s3)),
           'nfps':  multi_nfps / (np.amax( multi_nfps)),
           }
@@ -162,10 +159,10 @@ InputDict= {
     'eta bar': multi_eta_bar/ (np.amax(multi_eta_bar )),
     'iotas': multi_iotas/ (np.amax( multi_iotas)),
     #       'R0c1':  multi_R0c1/ (np.amax( multi_R0c1)),
-    'R0c2':  multi_R0c2/ (np.amax( multi_R0c2)),
+    #'R0c2':  multi_R0c2/ (np.amax( multi_R0c2)),
     #       'R0c3':  multi_R0c3/ (np.amax( multi_R0c3)),
     #        'Z0s1':  multi_Z0s1/ (np.amax(multi_Z0s1 )),
-    'Z0s2':  multi_Z0s2/ (np.amax(multi_Z0s2 )),
+    #'Z0s2':  multi_Z0s2/ (np.amax(multi_Z0s2 )),
     #       'Z0s3':  multi_Z0s3/ (np.amax(multi_Z0s3 )),
     'nfps':  multi_nfps/ (np.amax(multi_nfps ))
 }
@@ -175,42 +172,28 @@ OutputDict={
           'iotas': multi_iotas/ (np.amax(multi_iotas )),
           'rms curvatures':  multi_rms_curvature/ (np.amax(multi_rms_curvature )),
           'dominant nfps':  multi_dominant_nfps/ (np.amax( multi_dominant_nfps)) ,
-          'helicities':  np.abs(multi_helicities) ,
-#/ (np.amax(np.abs(multi_helicities ) )), #helicities are all negative
+          'helicities':  np.abs(multi_helicities) / (np.amax(np.abs(multi_helicities ) )), #helicities are all negative
           'max curvatures':  multi_max_curvatures / (np.amax(multi_max_curvatures  )),
           'max elongations': multi_max_elongations / (np.amax(multi_max_elongations  )),
           'std of R':  multi_standard_deviations_of_R/ (np.amax(multi_standard_deviations_of_R )),
           'std of Z':  multi_standard_deviations_of_Z/ (np.amax(multi_standard_deviations_of_Z ))
           }
 
-
+Keys= VarDict.keys()
+Keys.sort()
 
 Y=[]
-for var in OutputDict.keys():
-    B=np.ndarray.tolist(OutputDict[var])
+for var in Keys:
+    B= VarDict[var]
     Y.append(B)
-#easier way to modify A on successive runs
-A=[]
-for var in ['std of Z', 'std of R']:
-    B=np.ndarray.tolist(VarDict[var])
-    A.append(B)
-
-
-
 
 from sklearn.datasets.samples_generator import make_blobs
 
 #Scale to be usable by DBSCAN
-
-centers = [[1, 1], [-1, -1], [1, -1]]
-X, labels_true = make_blobs(n_samples=750, centers=centers, cluster_std=0.4,
-                            random_state=0)
-
 X = StandardScaler().fit_transform( np.transpose(Y))
-# #############################################################################
+##########################################################################
 
-
-db = DBSCAN(eps=0.3,min_samples=20).fit(X)
+db = DBSCAN(eps=0.1,min_samples=200).fit(X)
 core_samples_mask = np.zeros_like(db.labels_, dtype=bool)
 core_samples_mask[db.core_sample_indices_] = True
 labels = db.labels_
@@ -221,14 +204,14 @@ n_noise_ = list(labels).count(-1)
 
 print('Estimated number of clusters: %d' % n_clusters_)
 print('Estimated number of noise points: %d' % n_noise_)
-#print("Silhouette Coefficient: %0.3f" % metrics.silhouette_score(X, labels))
-
 
 
 import matplotlib
 matplotlib.use('Agg')
-
 import matplotlib.pyplot as plt
+
+Io= VarDict['iotas']
+MC = VarDict['max curvatures']
 
 #Preset up ploting function
 # Black removed and is used for noise instead.
@@ -241,19 +224,21 @@ for k, col in zip(unique_labels, colors):
         col = [0, 0, 0, 1]
 
     class_member_mask = (labels == k)
-
-    xy = X[class_member_mask & core_samples_mask]
-    plt.plot(xy[:, 0], xy[:, 1], 'o', markerfacecolor=tuple(col),
+#Switched X for Y to get back to original plot
+#Main list ploting
+    x = Io[class_member_mask & core_samples_mask]
+    y = MC[class_member_mask & core_samples_mask]
+    plt.plot(x, y, 'o', markerfacecolor=tuple(col),
              markeredgecolor='k', markersize=14)
-
-    xy = X[class_member_mask & ~core_samples_mask]
-    plt.plot(xy[:, 0], xy[:, 1], 'o', markerfacecolor=tuple(col),
+#Black ploting
+    x = Io[class_member_mask & ~core_samples_mask]
+    y = MC[class_member_mask & ~core_samples_mask]
+    plt.plot(x, y, 'o', markerfacecolor=tuple(col),
              markeredgecolor='k', markersize=6)
 
 plt.title('Estimated number of clusters: %d' % n_clusters_)
 plt.savefig('UnitDbScanCluster.png')
-#plt.show()
-
+np.save('labels.npy', labels)
 
 
 

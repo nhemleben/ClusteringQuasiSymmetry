@@ -8,7 +8,7 @@ load('Variables.mat')
 load('Keys.mat')
 %List of all variables in 'alphabetical' order (capitals count first)
 B = [
-%R0c1          ; %Just using outputs
+%R0c1          ; %Just using outputs and some inputs
 %R0c2          ;
 %R0c3          ;
 %Z0s1          ;
@@ -16,7 +16,7 @@ B = [
 %Z0s3          ;
 dominantnfps  ;
 etabar        ;
-helicities    ; %had issues with a row of all zeros when inverting something
+helicities    ; 
 iotas         ;
 maxcurvatures ;
 maxelongations;
@@ -29,16 +29,15 @@ stdofZ  ];
 C = unique(B', 'rows');
 A= C';
 
-
-%Note that the actual space Y is the one used for labeling
-%and A the plot variables is used for ploting
 % Run the clustering
 labels=isosplit5_mex(A);
+save('labels.mat', 'labels')
+
 [n,m]= size(A);
 T= string( Names )
 i=10
 view_clusters_no_legend(A(4:5,:),labels);
-title( strcat( T(i+1,:) , ' vs ', T(i,:) )  )
+title( strcat( T(i+1,:) , ' vs  ', T(i,:) )  )
 saveas(gcf,'UnitIsoPlot.png')
 
 % Display the results

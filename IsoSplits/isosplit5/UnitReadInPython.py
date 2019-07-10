@@ -135,7 +135,8 @@ VarDict= {
           'iotas': multi_iotas/ (np.amax(multi_iotas )),
           'rmscurvatures':  multi_rms_curvature/ (np.amax(multi_rms_curvature )),
           'dominantnfps':  multi_dominant_nfps/ (np.amax( multi_dominant_nfps)) ,
-          'helicities':  np.abs(multi_helicities) / (np.amax(np.abs(multi_helicities ) )), #helicities are all negative
+          'helicities':  np.abs(multi_helicities),
+# / (np.amax(np.abs(multi_helicities ) )), #helicities are all negative
           'maxcurvatures':  multi_max_curvatures / (np.amax(multi_max_curvatures  )),
           'maxelongations': multi_max_elongations / (np.amax(multi_max_elongations  )),
           'stdofR':  multi_standard_deviations_of_R/ (np.amax(multi_standard_deviations_of_R )),
@@ -156,12 +157,12 @@ VarDict= {
 InputDict= {
     'eta bar': multi_eta_bar/ (np.amax(multi_eta_bar )),
     'iotas': multi_iotas/ (np.amax( multi_iotas)),
-           'R0c1':  multi_R0c1/ (np.amax( multi_R0c1)),
+    #       'R0c1':  multi_R0c1/ (np.amax( multi_R0c1)),
     'R0c2':  multi_R0c2/ (np.amax( multi_R0c2)),
-           'R0c3':  multi_R0c3/ (np.amax( multi_R0c3)),
-            'Z0s1':  multi_Z0s1/ (np.amax(multi_Z0s1 )),
+    #       'R0c3':  multi_R0c3/ (np.amax( multi_R0c3)),
+    #        'Z0s1':  multi_Z0s1/ (np.amax(multi_Z0s1 )),
     'Z0s2':  multi_Z0s2/ (np.amax(multi_Z0s2 )),
-           'Z0s3':  multi_Z0s3/ (np.amax(multi_Z0s3 )),
+    #       'Z0s3':  multi_Z0s3/ (np.amax(multi_Z0s3 )),
     'nfps':  multi_nfps/ (np.amax(multi_nfps ))
 }
 
@@ -170,7 +171,8 @@ OutputDict={
           'iotas': multi_iotas/ (np.amax(multi_iotas )),
           'rms curvatures':  multi_rms_curvature/ (np.amax(multi_rms_curvature )),
           'dominant nfps':  multi_dominant_nfps/ (np.amax( multi_dominant_nfps)) ,
-          'helicities':  np.abs(multi_helicities)/ (np.amax(np.abs(multi_helicities ) )), #helicities are all negative
+          'helicities':  np.abs(multi_helicities) ,
+#/ (np.amax(np.abs(multi_helicities ) )), #helicities are all negative
           'max curvatures':  multi_max_curvatures / (np.amax(multi_max_curvatures  )),
           'max elongations': multi_max_elongations / (np.amax(multi_max_elongations  )),
           'std of R':  multi_standard_deviations_of_R/ (np.amax(multi_standard_deviations_of_R )),
